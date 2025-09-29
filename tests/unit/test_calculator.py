@@ -55,4 +55,21 @@ class TestMultiplyDivideWithValidation:
         with pytest.raises(TypeError, match="Division requires numeric inputs"):
             divide("10", 2)
 
+class TestPowerSqrt:
+    """Test power and square root functions"""
+    
+    def test_power_function(self):
+        """Test power function"""
+        from src.calculator import power
+        assert power(2, 3) == 8
+        assert power(5, 0) == 1
+    
+    def test_sqrt_function(self):
+        """Test square root function"""
+        from src.calculator import sqrt
+        assert sqrt(16) == 4
+        assert sqrt(0) == 0
+        with pytest.raises(ValueError, match="Cannot compute square root of negative number"):
+            sqrt(-4)
+
 # TODO: Students will add TestMultiplyDivide class
